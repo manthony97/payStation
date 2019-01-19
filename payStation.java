@@ -8,11 +8,17 @@ public class payStation {
     static Date date = new Date();
 
     public static void payStation(int choice) { //pay station will return a receipt with total payment and total time to park
-
+        int skip = 0; //used for bypassing while loop for Gammatown if Saturday or Sunday
         int totalAmount = 0; //total amount spent from single person
         int amountEntered = 0; //individual coin spent
 
-        while (amountEntered != 1) {
+        if (choice == 3 && (date.getDay() == 6 || date.getDay() == 0)) { //if it's Saturday or Sunday. Free Parking
+            System.out.println("FREE PARKING ON SATURDAYS AND SUNDAYS! ENJOY YOUR DAY!");
+            skip = 1;
+            System.exit(0);
+        }
+
+        while (amountEntered != 1 && skip !=1) {
             System.out.println("Enter coin: ");
             amountEntered = scan.nextInt();
 
