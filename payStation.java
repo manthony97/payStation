@@ -79,16 +79,11 @@ public class payStation {
         return timeGiven;
     }
 
-    //5cents is 2 minutes. Saturday and Sunday are free.
-    public static int gammatownMinutes(int amountEntered) {
+    //5cents is 2 minutes. Saturday and Sunday are free. Weekend statement included in paystation method
+    public static int gammatownMinutes(int amountEntered) { //same as alphatown
 
         int timeGiven;
-        if (date.getDay() == 6 || date.getDay() == 0) {
-            timeGiven = 100000000;
-        }
-        else {
-            timeGiven = (amountEntered / 5) * 2;
-        }
+        timeGiven = (amountEntered / 5) * 2;
         return timeGiven;
     }
 
